@@ -20,7 +20,7 @@ public class MainClass {
 
 
         }
-        System.out.println("****************************");
+        System.out.println("***************************");
 
     }
 
