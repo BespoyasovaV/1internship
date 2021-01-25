@@ -1,13 +1,12 @@
 package ru.documents;
 
 import java.util.Objects;
+import java.util.Set;
 
 public class Person {
     String name;
     String Surname;
     String patronymic;
-    Document[] document;
-
 
 
     public void setName(String name) {
@@ -34,11 +33,11 @@ public class Person {
         return patronymic;
     }
 
-    public Person( String surname,String name,  String patronymic) {
+    public Person(String surname, String name, String patronymic) {
 
-        this.name=name;
-        this.Surname=surname;
-        this.patronymic=patronymic;
+        this.name = name;
+        this.Surname = surname;
+        this.patronymic = patronymic;
     }
 
     @Override

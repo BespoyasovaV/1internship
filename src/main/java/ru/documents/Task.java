@@ -1,6 +1,6 @@
 package ru.documents;
 
-import ru.documents.Document;
+import ru.documents.factory.DocumentCreate;
 
 public class Task extends Document implements DocumentCreate {
     String date_issue;
@@ -71,13 +71,10 @@ public class Task extends Document implements DocumentCreate {
 
     @Override
     public String toString() {
-        return name;
-
-        /*"Дата выдачи поручения"+date_issue +
-                "Срок исполнения поручения: "+term+
-                "Отвественный исполнитель: "+executor_name+
-                "Признак контрольности"+sign+
-                "Контроллер поручения"+controller;*/
+        System.out.println("      " + author.Surname + " " + author.name + " " + author.patronymic);
+        System.out.print(name_first + " " + "№" + getCheck_num() + " " + "от" + " " + getDate_reg() + " " + getName());
+        System.out.println(" ");
+        return null;
     }
 
     @Override
@@ -85,22 +82,7 @@ public class Task extends Document implements DocumentCreate {
         System.out.print("Поручение" + " ");
     }
 
-    @Override
-    public void conclusion() {
 
-        System.out.println("      " + author.name+" "+ author.Surname+" "+author.patronymic);
-        //message format
-        //toString переопр
-
-
-    }
-
-    @Override
-    public void norm_concl() {
-
-        System.out.print(name_first + " " + "№" + getCheck_num() + " " + "от" + " " + getDate_reg() + " " + getName());
-        System.out.println(" ");
-    }
 
 
     public String returnClass() {

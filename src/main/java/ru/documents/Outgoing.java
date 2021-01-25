@@ -1,17 +1,19 @@
 package ru.documents;
 
-import ru.documents.Document;
+import ru.documents.factory.DocumentCreate;
 
 public class Outgoing extends Document implements DocumentCreate {
     String destination;
     String delivery;
-    String name_first="Исходящий";
-    static int check_num=0;
+    String name_first = "Исходящий";
+    static int check_num = 0;
+
     //getters
     private static int getCheck_num() {
-        check_num=check_num+1;
+        check_num = check_num + 1;
         return check_num;
     }
+
     public String getDestination() {
         return destination;
     }
@@ -28,44 +30,32 @@ public class Outgoing extends Document implements DocumentCreate {
     public void setDestination(String destination) {
         this.destination = destination;
     }
+
     //constructor
-    public Outgoing(int id, String name, String text, int reg_num, String date_reg, Person author, String destination, String delivery)
-    {
+    public Outgoing(int id, String name, String text, int reg_num, String date_reg, Person author, String destination, String delivery) {
         super(id, name, text, reg_num, date_reg, author);
-        this.destination=destination;
-        this.delivery=delivery;
+        this.destination = destination;
+        this.delivery = delivery;
 
     }
 
     @Override
     public String toString() {
-        return "Адресат: "+destination+
-                "Cпособ доставки+"+delivery;
+        System.out.println("      " + author.Surname + " " + author.name + " " + author.patronymic);
+        System.out.print(name_first + " " + "№" + getCheck_num() + " " + "от" + " " + getDate_reg() + " " + getName());
+        System.out.println(" ");
+        return null;
     }
 
     @Override
     public void create() {
-        System.out.print("Входящий"+" ");
+        System.out.print("Входящий" + " ");
     }
 
-    @Override
-    public void conclusion() {
-
-        System.out.println("      " + author.name+" "+ author.Surname+" "+author.patronymic);
-        //message format
-        //toString переопр
 
 
-    }
 
-    @Override
-    public void norm_concl() {
-
-        System.out.print(name_first + " " + "№" + getCheck_num() + " " + "от" + " " + getDate_reg() + " " + getName());
-        System.out.println(" ");
-    }
-
-    public String returnClass(){
+    public String returnClass() {
         return "Outgoing";
     }
 }

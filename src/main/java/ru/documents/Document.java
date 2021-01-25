@@ -2,15 +2,14 @@ package ru.documents;
 
 import java.util.Comparator;
 
-public class Document  {
+public class Document {
 
     int id;
     String name;
     String text;
     int reg_num;
     String date_reg;
-    Person author;
-
+    public Person author;
 
 
     //getters
@@ -66,6 +65,7 @@ public class Document  {
 
     //constructor
     public Document(int id, String name, String text, int reg_num, String date_reg, Person author) {
+
         this.id = id;
         this.name = name;
         this.text = text;
@@ -73,6 +73,9 @@ public class Document  {
         this.date_reg = date_reg;
         this.author = author;
 
+    }
+
+    public Document() {
     }
 
 
@@ -87,13 +90,6 @@ public class Document  {
             else return 0;
         }
     }
-
-
-
-
-
-
-
 
 
     class DocumentDateRegComparator implements Comparator<Document> {

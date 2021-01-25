@@ -1,29 +1,31 @@
 import ru.documents.DocumentExistException;
-import ru.documents.DocumentCreate;
-import ru.documents.DocumentFactory;
+import ru.documents.factory.DocumentCreate;
+import ru.documents.factory.DocumentFactory;
+import ru.generate.RandomValue;
 
 public class MainClass {
     public static void main(String[] args) throws DocumentExistException {
 
-        String[] arr = new String[]{"Task", "Incoming", "Outgoing"};
-
+        RandomValue randomValue = new RandomValue();
         DocumentFactory list = new DocumentFactory();
-        int rand_number = (int) (Math.random() * 7);
+
+        int rand_number = randomValue.generate_rand_number();
+
         DocumentCreate[] doc = new DocumentCreate[rand_number];
+
         System.out.println(rand_number);
         for (int i = 0; i < rand_number; i++) {
-            int rand_number_of_doc = (int) (Math.random() * 3);
-            doc[i] = list.getDocument(arr[rand_number_of_doc]);
-            doc[i].conclusion();
-            doc[i].norm_concl();
 
+            doc[i] = list.getDocument(randomValue.generate_doc_name());
+            doc[i].toString();
 
 
         }
+
         System.out.println("***************************");
 
+        System.out.println(randomValue.getPerson_and_document());
     }
-
 
 
 }
