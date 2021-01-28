@@ -1,5 +1,5 @@
 package ru.documents;
-
+/**  выбрасывает исключение, если документ с генерируемым номером уже существует*/
 public class DocumentExistException extends Exception {
 
     public DocumentExistException() {

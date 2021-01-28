@@ -1,6 +1,10 @@
 package ru.documents;
+
 import java.util.Objects;
 
+/**
+ * этот класс понадобится позже
+ */
 
 public class Person {
     String name;
@@ -10,26 +14,25 @@ public class Person {
     public void setName(String name) {
         this.name = name;
     }
+
     public void setSurname(String surname) {
         lastname = surname;
     }
+
     public void setPatronymic(String patronymic) {
         this.patronymic = patronymic;
     }
+
     public String getName() {
         return name;
     }
+
     public String getSurname() {
         return lastname;
     }
+
     public String getPatronymic() {
         return patronymic;
-    }
-    public Person(String surname, String name, String patronymic) {
-
-        this.name = name;
-        this.lastname = surname;
-        this.patronymic = patronymic;
     }
 
     @Override

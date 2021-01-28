@@ -1,10 +1,13 @@
-/**
- * должен создавать документы, должен, но не создает
- * сейчас здесь метод toString() для вывода
- */
 package ru.documents.factory;
 
-public interface DocumentCreate {
-    String toString();
+import ru.documents.Document;
+
+/**
+ * от этого класса наследуются фабрики, которые оздают документы разных видов
+ */
+public interface DocumentCreate <T extends  Document> {
+    T create();
+
+    T generateRandomPropertiesForDocument(T document);
 }
 
