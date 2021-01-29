@@ -1,32 +1,33 @@
 package ru.documents.factory;
 
-import ru.documents.Document;
-import ru.documents.Incoming;
+import org.apache.commons.lang3.RandomUtils;
+import ru.documents.DocumentExistException;
+import ru.documents.entity.Incoming;
 
 /**
- * класс создает документ Incoming, но без полей родителя
+ * Класс создает документ Incoming, но без полей родителя
+ *
+ * @author BespoyasovaV
  */
-public class IncomingFactory extends AbstractFactory<Incoming> implements Conclusion,DocumentCreate<Incoming> {
+public class IncomingFactory extends AbstractFactory<Incoming> implements DocumentCreate<Incoming> {
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public Incoming create() {
         return new Incoming();
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
-    public Incoming generateRandomPropertiesForDocument(Incoming document) {
+    public Incoming generateRandomPropertiesForDocument(Incoming document) throws DocumentExistException {
         getDocument(document);
         document.setSender(generateFio());
         document.setDestination(generateFio());
-        document.setOutgoing_num(generateIshNum());
+        document.setOutgoing_num(RandomUtils.nextInt(0, 35));
         document.setOutgoing_date(generateDate());
         return document;
-    }
-
-
-
-    @Override
-    public String toString(Document document) {
-        document=(Incoming) document;
-        return null;
     }
 }

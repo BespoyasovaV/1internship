@@ -1,16 +1,36 @@
-package ru.documents;
+package ru.documents.entity;
 
 import java.util.ArrayList;
 
 /**
- * наследник класса Document, нужен для создания документов поручений
+ * Наследник класса Document, нужен для создания документов поручений
+ *
+ * @author BespoyasovaV
  */
 public class Task extends Document {
+    /**
+     * Дата выдачи поручения
+     */
     String date_issue;
+    /**
+     * Срок исполнения пручения
+     */
     int term;
+    /**
+     * Ответственный исполнитель
+     */
     String executor_name;
+    /**
+     * Признак контрольности
+     */
     Boolean sign;
+    /**
+     * Контролер поручения
+     */
     Boolean controller;
+    /**
+     * Название вида документа
+     */
     String name_first = "Поручение";
     int check_num = 0;
     ArrayList<Integer> check_id = new ArrayList<Integer>();
@@ -57,5 +77,8 @@ public class Task extends Document {
         this.date_issue = date_issue;
     }
 
+    public String toString() {
+        return name_first + " " + "№" + " " + getReg_num() + " " + "от" + " " + getDate_reg() + " " + getName();
+    }
 }
 

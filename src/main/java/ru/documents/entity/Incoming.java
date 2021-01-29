@@ -1,17 +1,33 @@
-package ru.documents;
+package ru.documents.entity;
 
 import java.util.ArrayList;
 
 /**
- * наследник класса Document, нужен для создания входящих документов
+ * Наследник класса Document, нужен для создания входящих документов
+ *
+ * @author BespoyasovaV
  */
 public class Incoming extends Document {
+    /**
+     * Отправитель
+     */
     String sender;
+    /**
+     * Адресат
+     */
     String destination;
+    /**
+     * Исходящий номер
+     */
     int outgoing_num;
+    /**
+     * Исходящая дата регистрации
+     */
     String outgoing_date;
+    /**
+     * Название вида документа
+     */
     String name_first = "Входящий";
-    int check_num = 0;
     ArrayList<Integer> check_id = new ArrayList<Integer>();
 
     //getters
@@ -46,6 +62,10 @@ public class Incoming extends Document {
 
     public void setOutgoing_date(String outgoing_date) {
         this.outgoing_date = outgoing_date;
+    }
+
+    public String toString() {
+        return name_first + " " + "№" + " " + getReg_num() + " " + "от" + " " + getDate_reg() + " " + getName();
     }
 
 }

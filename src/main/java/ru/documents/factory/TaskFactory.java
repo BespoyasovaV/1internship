@@ -1,33 +1,34 @@
 package ru.documents.factory;
 
-import ru.documents.Document;
-import ru.documents.Task;
-import ru.documents.factory.AbstractFactory;
-import ru.documents.factory.DocumentCreate;
+import org.apache.commons.lang3.RandomUtils;
+import ru.documents.DocumentExistException;
+import ru.documents.entity.Task;
 
 /**
- * класс создает документ Task, но без полей родителя
+ * Класс создает документ Task, но без полей родителя
+ *
+ * @author BespoyasovaV
  */
-public class TaskFactory extends AbstractFactory<Task> implements Conclusion,DocumentCreate<Task> {
+public class TaskFactory extends AbstractFactory<Task> implements DocumentCreate<Task> {
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public Task create() {
         return new Task();
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
-    public Task generateRandomPropertiesForDocument(Task document) {
+    public Task generateRandomPropertiesForDocument(Task document) throws DocumentExistException {
         getDocument(document);
         document.setDate_issue(generateDate());
-        document.setTerm(generateTerm());
+        document.setTerm(RandomUtils.nextInt(0, 56));
         document.setExecutor_name(generateFio());
-        document.setSign(generateSign());
-        document.setController(generateController());
+        document.setSign(RandomUtils.nextBoolean());
+        document.setController(RandomUtils.nextBoolean());
         return document;
-    }
-
-
-    @Override
-    public String toString(Document document) {
-        return null;
     }
 }

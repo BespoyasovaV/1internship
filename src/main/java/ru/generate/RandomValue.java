@@ -1,32 +1,30 @@
 package ru.generate;
 
-import ru.documents.Person;
-import ru.documents.factory.DocumentCreate;
-import ru.documents.factory.IncomingFactory;
-import ru.documents.factory.OutgoingFactory;
-import ru.documents.factory.TaskFactory;
+import ru.documents.DocumentExistException;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import java.util.Random;
 
 /**
- * класс для генерации рандомных значений
+ * Класс для генерации рандомных значений
+ *
+ * @author BespoyasovaV
  */
 public class RandomValue {
-    int regNumForTask = 0;
-    int regNumForIncoming = 0;
-    int regNumForOutgoing = 0;
-    ArrayList<Person> personList = new ArrayList<>();
-    ArrayList<Integer> check_id = new ArrayList<Integer>();
-    String[] arr = new String[]{"Task", "Incoming", "Outgoing"};
-    String[] wordListOne = new String[]{"Доменная", "Схематичная", "Базовая", "Первичная"};
-    String[] wordListTwo = new String[]{"интеграция", "конфигурация", "верификация"};
-    public int one = wordListOne.length;
-    public int two = wordListTwo.length;
-    String[] textList = new String[]{"Текст про птичек", "Текст про бабочек", "Биографя Шрека", "Чек-лист по заработку",
-            "Как научиться вышивать?"};
-    public String[] listFio = new String[]{"Барсуков Сергей Геннадиевич", "Березнянкова Анфиса Кирилловна",
-            "Киреева Надежда Семенова", "Никитина Юлия Игоревна", "Полянская Кристина Викторовна",};
+
+    public static List<String> listFio = Arrays.asList("Барсуков Сергей Геннадиевич", "Березнянкова Анфиса Кирилловна",
+            "Киреева Надежда Семенова", "Никитина Юлия Игоревна", "Полянская Кристина Викторовна");
+
+    public static List<String> arr = Arrays.asList("Task", "Incoming", "Outgoing");
+    static List<String> wordListOne = Arrays.asList("Доменная", "Схематичная", "Базовая", "Первичная");
+    static List<String> wordListTwo = Arrays.asList("интеграция", "конфигурация", "верификация");
+    static List<String> textList = Arrays.asList("Текст про птичек", "Текст про бабочек", "Биографя Шрека",
+            "Чек-лист по заработку", "Как научиться вышивать?");
+    static ArrayList<Integer> arrException = new ArrayList<>();
+    public int one = wordListOne.size();
+    public int two = wordListTwo.size();
 
     public enum Delivery {
         Самовывоз,
@@ -34,14 +32,19 @@ public class RandomValue {
         ПочтаРоссии
     }
 
-    public int generateRandomNumber() {
-        int rand_number = (int) (Math.random() * 7);
+    public static int generateRandomNumber(int beforeNumber) throws DocumentExistException {
+        int rand_number = (int) (Math.random() * beforeNumber);
+        if (arrException.contains(rand_number)) {
+            DocumentExistException docE = new DocumentExistException();
+        } else {
+            arrException.add(rand_number);
+        }
         return rand_number;
     }
 
     public String generateNameText() {
         int genText = (int) (Math.random() * 4);
-        String newText = textList[genText];
+        String newText = textList.get(genText);
         return newText;
     }
 
@@ -50,53 +53,17 @@ public class RandomValue {
         return Delivery.values()[gen_del];
     }
 
-    public int generateId() {
-        int id = (int) (Math.random() * 100);
-        return id;
-
-    }
-
     public String generateNameDoc() {
         int rand1 = (int) (Math.random() * one);
         int rand2 = (int) (Math.random() * two);
-        String name = wordListOne[rand1] + " " + wordListTwo[rand2];
+        String name = wordListOne.get(rand1) + " " + wordListTwo.get(rand2);
         return name;
     }
 
     public String generateFio() {
         int fio_rand = (int) (Math.random() * 3);
-        String fio = listFio[fio_rand];
+        String fio = listFio.get(fio_rand);
         return fio;
-    }
-
-    public int generateTerm() {
-        int term = (int) (Math.random() * 56);
-
-        return term;
-    }
-
-    public int generateIshNum() {
-        int num = (int) (Math.random() * 10000);
-
-        return num;
-    }
-
-    public boolean generateSign() {
-        int sign = (int) (Math.random() * 100);
-        if (sign / 2 == 0) {
-            return false;
-        } else {
-            return true;
-        }
-    }
-
-    public boolean generateController() {
-        int sign = (int) (Math.random() * 100);
-        if (sign / 2 == 0) {
-            return false;
-        } else {
-            return true;
-        }
     }
 
     public String generateDate() {
@@ -116,20 +83,5 @@ public class RandomValue {
         return date1;
     }
 
-    public DocumentCreate generateRandomFactory() {
-        int generateRandomNum = (int) (Math.random() * 3);
-        DocumentCreate documentCreate = null;
-        if (arr[generateRandomNum] == "Task") {
-            documentCreate = new TaskFactory();
-            return documentCreate;
-        }
-        if (arr[generateRandomNum] == "Incoming") {
-            documentCreate = new IncomingFactory();
-            return documentCreate;
-        }
-        if (arr[generateRandomNum] == "Outgoing") {
-            documentCreate = new OutgoingFactory();
-        }
-        return documentCreate;
-    }
+
 }

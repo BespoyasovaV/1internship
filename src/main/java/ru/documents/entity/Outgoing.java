@@ -1,31 +1,30 @@
-package ru.documents;
+package ru.documents.entity;
 
 import ru.generate.RandomValue;
 
 import java.util.ArrayList;
 
 /**
- * наследник класса Document, нужен для создания исходящих документов
+ * Наследник класса Document, нужен для создания исходящих документов
+ *
+ * @author BespoyasovaV
  */
 public class Outgoing extends Document {
+    /**
+     * Адресат
+     */
     String destination;
+    /**
+     * Способ доставки
+     */
     RandomValue.Delivery delivery;
+    /**
+     * Название вида документа
+     */
     String name_first = "Исходящий";
-    int check_num = 0;
     ArrayList<Integer> check_id = new ArrayList<Integer>();
 
     //getters
-    private int getCheck_num() throws DocumentExistException {
-        check_num = (int) (Math.random() * 34);
-        if (check_id.contains(check_num)) {
-            throw new DocumentExistException();
-        } else {
-            check_id.add(check_num);
-            return check_num;
-        }
-
-    }
-
     public String getDestination() {
         return destination;
     }
@@ -41,6 +40,10 @@ public class Outgoing extends Document {
 
     public void setDestination(String destination) {
         this.destination = destination;
+    }
+
+    public String toString() {
+        return name_first + " " + "№" + " " + getReg_num() + " " + "от" + " " + getDate_reg() + " " + getName();
     }
 
 }

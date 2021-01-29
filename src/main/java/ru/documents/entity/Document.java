@@ -1,17 +1,40 @@
-package ru.documents;
+package ru.documents.entity;
 
-import java.util.Comparator;
-/**  класс родитель для видов документов*/
+import java.util.UUID;
+
+/**
+ * Класс родитель для видов документов
+ *
+ * @author BespoyasovaV
+ */
 public class Document {
-    int id;
+    /**
+     * Идентификатор документа
+     */
+    UUID id;
+    /**
+     * Название документа
+     */
     String name;
+    /**
+     * Текст  документа
+     */
     String text;
+    /**
+     * Регистрационный номер документа
+     */
     int reg_num;
+    /**
+     * Дата регистрации документа
+     */
     String date_reg;
+    /**
+     * Автор документа
+     */
     String author;
 
     //getters
-    public int getId() {
+    public UUID getId() {
         return id;
     }
 
@@ -56,27 +79,8 @@ public class Document {
         this.name = name;
     }
 
-    public void setId(int id) {
+    public void setId(UUID id) {
         this.id = id;
     }
-
-    // реализация интерфейса Comparator
-    class DocumentRegNumComparator implements Comparator<Document> {
-        public int compare(Document a, Document b) {
-            if (a.getReg_num() > b.getReg_num())
-                return 1;
-            if (a.getReg_num() < b.getReg_num())
-                return -1;
-            else return 0;
-        }
-    }
-
-    class DocumentDateRegComparator implements Comparator<Document> {
-        public int compare(Document a, Document b) {
-            return a.getDate_reg().compareTo(b.getDate_reg());
-        }
-    }
-
-
 }
 

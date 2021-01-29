@@ -1,30 +1,30 @@
 package ru.documents.factory;
 
-import ru.documents.Document;
-import ru.documents.Outgoing;
-import ru.documents.factory.AbstractFactory;
-import ru.documents.factory.DocumentCreate;
+import ru.documents.DocumentExistException;
+import ru.documents.entity.Outgoing;
 
 /**
- * класс создает документ Outgoing, но без полей родителя
+ * Класс создает документ Outgoing, но без полей родителя
+ *
+ * @author BespoyasovaV
  */
-public class OutgoingFactory extends AbstractFactory<Outgoing> implements  Conclusion,DocumentCreate<Outgoing>  {
+public class OutgoingFactory extends AbstractFactory<Outgoing> implements DocumentCreate<Outgoing> {
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public Outgoing create() {
         return new Outgoing();
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
-    public Outgoing generateRandomPropertiesForDocument(Outgoing document) {
-       getDocument(document);
+    public Outgoing generateRandomPropertiesForDocument(Outgoing document) throws DocumentExistException {
+        getDocument(document);
         document.setDestination(generateFio());
         document.setDelivery(generateDelivery());
         return document;
-
-    }
-
-    @Override
-    public String toString(Document document) {
-        return null;
     }
 }
