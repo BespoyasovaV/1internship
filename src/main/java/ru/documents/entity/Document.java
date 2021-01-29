@@ -7,7 +7,7 @@ import java.util.UUID;
  *
  * @author BespoyasovaV
  */
-public class Document {
+public class Document<T> implements Comparable<Document> {
     /**
      * Идентификатор документа
      */
@@ -82,5 +82,18 @@ public class Document {
     public void setId(UUID id) {
         this.id = id;
     }
+
+    @Override
+    public int compareTo(Document o) {
+        if (this.reg_num - o.reg_num < 0) {
+            return -1;
+        }
+        if (this.reg_num - o.reg_num > 0) {
+            return 1;
+        } else {
+            return this.date_reg.compareTo(o.getDate_reg());
+        }
+    }
 }
+
 

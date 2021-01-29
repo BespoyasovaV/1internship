@@ -22,7 +22,7 @@ public class TaskFactory extends AbstractFactory<Task> implements DocumentCreate
      * {@inheritDoc}
      */
     @Override
-    public Task generateRandomPropertiesForDocument(Task document) throws DocumentExistException {
+    public Task generateRandomPropertiesForDocument(Task document) {
         getDocument(document);
         document.setDate_issue(generateDate());
         document.setTerm(RandomUtils.nextInt(0, 56));

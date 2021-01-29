@@ -12,7 +12,7 @@
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
-      <module name="task1.2021" options="--add-exports java.base/jdk.internal.access=ALL-UNNAMED" />
+      <module name="task1.2021" options="" />
     </option>
   </component>
 </project>

@@ -15,6 +15,6 @@ public interface DocumentCreate<T extends Document> {
     /**
      * Заполняет поля пустого докуметна, но не все, а те, которые относятся к его классу
      */
-    T generateRandomPropertiesForDocument(T document) throws DocumentExistException;
+    T generateRandomPropertiesForDocument(T document) ;
 }
 

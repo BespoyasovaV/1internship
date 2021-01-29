@@ -22,7 +22,7 @@ public class IncomingFactory extends AbstractFactory<Incoming> implements Docume
      * {@inheritDoc}
      */
     @Override
-    public Incoming generateRandomPropertiesForDocument(Incoming document) throws DocumentExistException {
+    public Incoming generateRandomPropertiesForDocument(Incoming document) {
         getDocument(document);
         document.setSender(generateFio());
         document.setDestination(generateFio());

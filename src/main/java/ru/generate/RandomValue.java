@@ -16,7 +16,6 @@ public class RandomValue {
 
     public static List<String> listFio = Arrays.asList("Барсуков Сергей Геннадиевич", "Березнянкова Анфиса Кирилловна",
             "Киреева Надежда Семенова", "Никитина Юлия Игоревна", "Полянская Кристина Викторовна");
-
     public static List<String> arr = Arrays.asList("Task", "Incoming", "Outgoing");
     static List<String> wordListOne = Arrays.asList("Доменная", "Схематичная", "Базовая", "Первичная");
     static List<String> wordListTwo = Arrays.asList("интеграция", "конфигурация", "верификация");
@@ -35,7 +34,7 @@ public class RandomValue {
     public static int generateRandomNumber(int beforeNumber) throws DocumentExistException {
         int rand_number = (int) (Math.random() * beforeNumber);
         if (arrException.contains(rand_number)) {
-            DocumentExistException docE = new DocumentExistException();
+           throw new DocumentExistException("Документ с генерируемым номером уже существует" );
         } else {
             arrException.add(rand_number);
         }
