@@ -51,7 +51,7 @@ public class RandomValue {
     public Date generateDate() {
         int yearRand = (int) (2000 + Math.random() * 25);
         int monthRand = (int) (1 + Math.random() * 10);
-        int dayRand = (int) (Math.random() * 30) + 1;
+        int dayRand = (int) (Math.random() * 29) + 1;
         Calendar calendar = new GregorianCalendar(yearRand, monthRand, dayRand);
         Date date = calendar.getTime();
         return date;
