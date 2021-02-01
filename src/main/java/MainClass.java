@@ -1,4 +1,4 @@
-import ru.documents.CollectionsForAllYourNeeds;
+import ru.generate.CollectionsForAllYourNeeds;
 import ru.generate.GenerateRandomFactory;
 import ru.documents.entity.Document;
 import ru.documents.DocumentExistException;
@@ -6,7 +6,7 @@ import ru.documents.factory.DocumentCreate;
 import ru.generate.RandomValue;
 
 /**
- * Класс запуска приложения, в консоль выводится список документов
+ * Класс для запуска приложения, в консоль выводится список документов
  *
  * @author BespoyasovaV
  */
@@ -19,7 +19,7 @@ public class MainClass {
             CollectionsForAllYourNeeds.listDocument.add(doc);
         }
         CollectionsForAllYourNeeds.populate();
-        System.out.println("Общее количество документов:" + " " + randomValueForDocList);
+        System.out.println("Общее количество документов :" + " " + randomValueForDocList);
         CollectionsForAllYourNeeds.conclusion();
     }
 }

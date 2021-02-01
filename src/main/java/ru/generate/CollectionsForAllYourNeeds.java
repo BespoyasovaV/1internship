@@ -1,4 +1,4 @@
-package ru.documents;
+package ru.generate;
 
 import ru.documents.entity.Document;
 

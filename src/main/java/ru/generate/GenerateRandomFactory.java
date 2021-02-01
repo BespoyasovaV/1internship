@@ -1,6 +1,5 @@
 package ru.generate;
 
-import ru.documents.CollectionsForAllYourNeeds;
 import ru.documents.factory.DocumentCreate;
 import ru.documents.factory.IncomingFactory;
 import ru.documents.factory.OutgoingFactory;
