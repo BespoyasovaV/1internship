@@ -19,7 +19,6 @@ public class MainClass {
             CollectionsForAllYourNeeds.listDocument.add(doc);
         }
         CollectionsForAllYourNeeds.populate();
-        System.out.println("Общее количество документов :" + " " + randomValueForDocList);
         CollectionsForAllYourNeeds.conclusion();
     }
 }

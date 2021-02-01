@@ -25,21 +25,9 @@ public final class CollectionsForAllYourNeeds {
     static {
         listFio = Arrays.asList("Барсуков Сергей Геннадиевич", "Березнянкова Анфиса Кирилловна",
                 "Киреева Надежда Семенова", "Никитина Юлия Игоревна", "Полянская Кристина Викторовна");
-    }
-
-    static {
         arr = Arrays.asList("Task", "Incoming", "Outgoing");
-    }
-
-    static {
         wordListOne = Arrays.asList("Доменная", "Схематичная", "Базовая", "Первичная");
-    }
-
-    static {
         wordListTwo = Arrays.asList("интеграция", "конфигурация", "верификация");
-    }
-
-    static {
         textList = Arrays.asList("Текст про птичек", "Текст про бабочек", "Биографя Шрека", "Чек-лист по заработку",
                 "Как научиться вышивать?");
     }
