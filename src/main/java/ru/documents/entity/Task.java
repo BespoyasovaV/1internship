@@ -30,7 +30,7 @@ public class Task extends Document {
      */
     Boolean controller;
     /**
-     * Название вида документа
+     * Название вида  документа
      */
     String name_first = "Поручение";
     ArrayList<Integer> check_id = new ArrayList<Integer>();

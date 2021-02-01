@@ -4,7 +4,7 @@ import org.apache.commons.lang3.RandomUtils;
 import ru.documents.entity.Task;
 
 /**
- * Класс создает документ Task, но без полей родителя
+ * Класс создает  документ Task, но без полей родителя
  *
  * @author BespoyasovaV
  */

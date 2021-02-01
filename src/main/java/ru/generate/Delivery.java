@@ -1,7 +1,7 @@
 package ru.generate;
 
 /**
- * Enum  с вариантами доставки
+ * Enum с вариантами доставки
  *
  * @author BespoyasovaV
  */

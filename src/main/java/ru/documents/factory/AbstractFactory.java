@@ -7,7 +7,7 @@ import ru.generate.RandomValue;
 import java.util.UUID;
 
 /**
- * Заполянет поля документа и возвращает его
+ * Заполянет поля  документа и возвращает его
  *
  * @author BespoyasovaV
  */

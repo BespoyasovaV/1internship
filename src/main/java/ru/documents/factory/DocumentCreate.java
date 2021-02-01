@@ -3,7 +3,7 @@ package ru.documents.factory;
 import ru.documents.entity.Document;
 
 /**
- * От этого класса наследуются фабрики, которые оздают документы разных видов
+ * От этого класса  наследуются фабрики, которые оздают документы разных видов
  */
 public interface DocumentCreate<T extends Document> {
     /**

@@ -5,7 +5,7 @@ import ru.documents.entity.Document;
 import java.util.*;
 
 /**
- * Класс со всеми имеющимися коллекциями
+ * Класс со всеми имеющимися  коллекциями
  *
  * @author BespoyasovaV
  */

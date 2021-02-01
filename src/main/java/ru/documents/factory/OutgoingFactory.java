@@ -3,7 +3,7 @@ package ru.documents.factory;
 import ru.documents.entity.Outgoing;
 
 /**
- * Класс создает документ Outgoing, но без полей родителя
+ * Класс создает  документ Outgoing, но без полей родителя
  *
  * @author BespoyasovaV
  */

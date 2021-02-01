@@ -26,7 +26,7 @@ public class Incoming extends Document {
      */
     Date outgoing_date;
     /**
-     * Название вида документа
+     * Название вида  документа
      */
     String name_first = "Входящий";
     ArrayList<Integer> check_id = new ArrayList<Integer>();

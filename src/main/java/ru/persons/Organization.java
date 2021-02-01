@@ -1,5 +1,5 @@
 package ru.persons;
-/** Наследник класса Staff, нужен для создания организаций
+/** Наследник класса Staff,нужен для создания организаций
  * @author BespoyasovaV*/
 public class Organization extends Staff{
     String fullName;

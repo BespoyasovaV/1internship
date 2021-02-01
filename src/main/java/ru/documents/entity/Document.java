@@ -4,7 +4,7 @@ import java.util.Date;
 import java.util.UUID;
 
 /**
- * Класс родитель для видов документов
+ * Класс родитель  для видов документов
  *
  * @author BespoyasovaV
  */

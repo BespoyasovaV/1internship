@@ -4,7 +4,7 @@ import org.apache.commons.lang3.RandomUtils;
 import ru.documents.entity.Incoming;
 
 /**
- * Класс создает документ Incoming, но без полей родителя
+ * Класс создает  документ Incoming, но без полей родителя
  *
  * @author BespoyasovaV
  */

@@ -13,7 +13,7 @@ public class Outgoing extends Document {
      */
     String destination;
     /**
-     * Способ доставки
+     * Способ  доставки
      */
     Delivery delivery;
     /**

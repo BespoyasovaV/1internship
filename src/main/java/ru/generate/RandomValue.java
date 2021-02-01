@@ -8,7 +8,7 @@ import java.util.GregorianCalendar;
 import java.util.Random;
 
 /**
- * Класс для генерации рандомных значений
+ * Класс для генерации  рандомных значений
  *
  * @author BespoyasovaV
  */
