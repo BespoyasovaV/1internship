@@ -1,6 +1,5 @@
 package ru.documents.factory;
 
-import ru.documents.DocumentExistException;
 import ru.documents.entity.Outgoing;
 
 /**
@@ -21,7 +20,7 @@ public class OutgoingFactory extends AbstractFactory<Outgoing> implements Docume
      * {@inheritDoc}
      */
     @Override
-    public Outgoing generateRandomPropertiesForDocument(Outgoing document) throws DocumentExistException {
+    public Outgoing generateRandomPropertiesForDocument(Outgoing document) {
         getDocument(document);
         document.setDestination(generateFio());
         document.setDelivery(generateDelivery());

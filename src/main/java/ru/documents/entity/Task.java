@@ -1,6 +1,7 @@
 package ru.documents.entity;
 
 import java.util.ArrayList;
+import java.util.Date;
 
 /**
  * Наследник класса Document, нужен для создания документов поручений
@@ -11,7 +12,7 @@ public class Task extends Document {
     /**
      * Дата выдачи поручения
      */
-    String date_issue;
+    Date date_issue;
     /**
      * Срок исполнения пручения
      */
@@ -32,7 +33,6 @@ public class Task extends Document {
      * Название вида документа
      */
     String name_first = "Поручение";
-    int check_num = 0;
     ArrayList<Integer> check_id = new ArrayList<Integer>();
 
     //getter
@@ -40,7 +40,7 @@ public class Task extends Document {
         return term;
     }
 
-    public String getDate_issue() {
+    public Date getDate_issue() {
         return date_issue;
     }
 
@@ -73,12 +73,17 @@ public class Task extends Document {
         this.term = term;
     }
 
-    public void setDate_issue(String date_issue) {
+    public void setDate_issue(Date date_issue) {
         this.date_issue = date_issue;
     }
 
     public String toString() {
-        return name_first + " " + "№" + " " + getReg_num() + " " + "от" + " " + getDate_reg() + " " + getName();
+        int month = getDate_reg().getMonth() + 1;
+        int year = getDate_reg().getYear() + 1900;
+        if (month >=10) {
+            return name_first + " " + "№" + " " + getReg_num() + " " + "от" + " " + getDate_reg().getDay() + "." + month + "." + year + " " + getName();
+        }
+        return name_first + " " + "№" + " " + getReg_num() + " " + "от" + " " + getDate_reg().getDay() + ".0" + month + "." + year + " " + getName();
     }
 }
 

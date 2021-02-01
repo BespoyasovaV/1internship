@@ -1,6 +1,7 @@
 package ru.documents.entity;
 
 import java.util.ArrayList;
+import java.util.Date;
 
 /**
  * Наследник класса Document, нужен для создания входящих документов
@@ -23,7 +24,7 @@ public class Incoming extends Document {
     /**
      * Исходящая дата регистрации
      */
-    String outgoing_date;
+    Date outgoing_date;
     /**
      * Название вида документа
      */
@@ -43,7 +44,7 @@ public class Incoming extends Document {
         return outgoing_num;
     }
 
-    public String getOutgoing_date() {
+    public Date getOutgoing_date() {
         return outgoing_date;
     }
 
@@ -60,13 +61,17 @@ public class Incoming extends Document {
         this.outgoing_num = outgoing_num;
     }
 
-    public void setOutgoing_date(String outgoing_date) {
+    public void setOutgoing_date(Date outgoing_date) {
         this.outgoing_date = outgoing_date;
     }
 
     public String toString() {
-        return name_first + " " + "№" + " " + getReg_num() + " " + "от" + " " + getDate_reg() + " " + getName();
+        int month = getDate_reg().getMonth() + 1;
+        int year = getDate_reg().getYear() + 1900;
+        if (month >=10) {
+            return name_first + " " + "№" + " " + getReg_num() + " " + "от" + " " + getDate_reg().getDay() + "." + month + "." + year + " " + getName();
+        }
+        return name_first + " " + "№" + " " + getReg_num() + " " + "от" + " " + getDate_reg().getDay() + ".0" + month + "." + year + " " + getName();
     }
-
 }
 

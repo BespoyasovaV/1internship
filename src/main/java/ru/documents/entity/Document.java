@@ -1,5 +1,6 @@
 package ru.documents.entity;
 
+import java.util.Date;
 import java.util.UUID;
 
 /**
@@ -7,7 +8,7 @@ import java.util.UUID;
  *
  * @author BespoyasovaV
  */
-public class Document {
+public class Document<T> implements Comparable<Document> {
     /**
      * Идентификатор документа
      */
@@ -27,7 +28,7 @@ public class Document {
     /**
      * Дата регистрации документа
      */
-    String date_reg;
+    Date date_reg;
     /**
      * Автор документа
      */
@@ -54,7 +55,7 @@ public class Document {
         return author;
     }
 
-    public String getDate_reg() {
+    public Date getDate_reg() {
         return date_reg;
     }
 
@@ -63,7 +64,7 @@ public class Document {
         this.author = author;
     }
 
-    public void setDate_reg(String date_reg) {
+    public void setDate_reg(Date date_reg) {
         this.date_reg = date_reg;
     }
 
@@ -81,6 +82,18 @@ public class Document {
 
     public void setId(UUID id) {
         this.id = id;
+    }
+
+    @Override
+    public int compareTo(Document o) {
+        if (this.reg_num - o.reg_num < 0) {
+            return -1;
+        }
+        if (this.reg_num - o.reg_num > 0) {
+            return 1;
+        } else {
+            return this.date_reg.compareTo(o.getDate_reg());
+        }
     }
 }
 

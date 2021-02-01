@@ -6,13 +6,7 @@ package ru.documents;
  * @author BespoyasovaV
  */
 public class DocumentExistException extends Exception {
-    private static final String description = null;
-
-    /**
-     * Метод для исключения
-     */
-    public DocumentExistException() {
+    public DocumentExistException(String description) {
         super(description);
-        System.out.println("Документ с генерируемым номером уже существует");
     }
 }
