@@ -4,6 +4,8 @@ import ru.documents.entity.Document;
 
 /**
  * От этого класса  наследуются фабрики, которые оздают документы разных видов
+ *
+ * @author BespoyasovaV
  */
 public interface DocumentCreate<T extends Document> {
     /**

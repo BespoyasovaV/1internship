@@ -25,8 +25,8 @@ public class IncomingFactory extends AbstractFactory<Incoming> implements Docume
         getDocument(document);
         document.setSender(generateFio());
         document.setDestination(generateFio());
-        document.setOutgoing_num(RandomUtils.nextInt(0, 35));
-        document.setOutgoing_date(generateDate());
+        document.setOutgoingNum(RandomUtils.nextInt(0, 35));
+        document.setOutgoingDate(generateDate());
         return document;
     }
 }

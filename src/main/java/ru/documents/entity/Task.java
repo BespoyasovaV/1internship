@@ -1,6 +1,6 @@
 package ru.documents.entity;
 
-import java.util.ArrayList;
+import java.text.MessageFormat;
 import java.util.Date;
 
 /**
@@ -12,7 +12,7 @@ public class Task extends Document {
     /**
      * Дата выдачи поручения
      */
-    Date date_issue;
+    Date dateIssue;
     /**
      * Срок исполнения пручения
      */
@@ -20,7 +20,7 @@ public class Task extends Document {
     /**
      * Ответственный исполнитель
      */
-    String executor_name;
+    String executorName;
     /**
      * Признак контрольности
      */
@@ -29,23 +29,20 @@ public class Task extends Document {
      * Контролер поручения
      */
     Boolean controller;
+
     /**
      * Название вида  документа
      */
-    String name_first = "Поручение";
-    ArrayList<Integer> check_id = new ArrayList<Integer>();
-
-    //getter
     public int getTerm() {
         return term;
     }
 
-    public Date getDate_issue() {
-        return date_issue;
+    public Date getDateIssue() {
+        return dateIssue;
     }
 
-    public String getExecutor_name() {
-        return executor_name;
+    public String getExecutorName() {
+        return executorName;
     }
 
     public Boolean getSign() {
@@ -56,7 +53,6 @@ public class Task extends Document {
         return controller;
     }
 
-    //setters
     public void setController(Boolean controller) {
         this.controller = controller;
     }
@@ -65,25 +61,21 @@ public class Task extends Document {
         this.sign = sign;
     }
 
-    public void setExecutor_name(String executor_name) {
-        this.executor_name = executor_name;
+    public void setExecutorName(String executor_name) {
+        this.executorName = executorName;
     }
 
     public void setTerm(int term) {
         this.term = term;
     }
 
-    public void setDate_issue(Date date_issue) {
-        this.date_issue = date_issue;
+    public void setDateIssue(Date dateIssue) {
+        this.dateIssue = dateIssue;
     }
 
     public String toString() {
-        int month = getDate_reg().getMonth() + 1;
-        int year = getDate_reg().getYear() + 1900;
-        if (month >=10) {
-            return name_first + " " + "№" + " " + getReg_num() + " " + "от" + " " + getDate_reg().getDay() + "." + month + "." + year + " " + getName();
-        }
-        return name_first + " " + "№" + " " + getReg_num() + " " + "от" + " " + getDate_reg().getDay() + ".0" + month + "." + year + " " + getName();
+        String text = MessageFormat.format("Поручение № {0,number,integer} от {1,date} {2}", getReg_num(), getDateReg(), getName());
+        return text;
     }
 }
 

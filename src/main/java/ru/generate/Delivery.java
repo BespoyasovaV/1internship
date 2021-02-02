@@ -6,7 +6,7 @@ package ru.generate;
  * @author BespoyasovaV
  */
 public enum Delivery {
-    САМОВЫВОЗ,
-    КУРЬЕРОМ,
-    ПОЧТА_РОССИИ
+    PICK_UP_SERVICE,
+    COURIER,
+    RUSSIAN_POST
 }

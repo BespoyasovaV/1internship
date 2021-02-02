@@ -2,6 +2,8 @@ package ru.documents.entity;
 
 import ru.generate.Delivery;
 
+import java.text.MessageFormat;
+
 /**
  * Наследник класса Document, нужен для создания исходящих документов
  *
@@ -16,12 +18,10 @@ public class Outgoing extends Document {
      * Способ  доставки
      */
     Delivery delivery;
+
     /**
      * Название вида документа
      */
-    String name_first = "Исходящий";
-
-    //getters
     public String getDestination() {
         return destination;
     }
@@ -30,7 +30,6 @@ public class Outgoing extends Document {
         return delivery;
     }
 
-    //setters
     public void setDelivery(Delivery delivery) {
         this.delivery = delivery;
     }
@@ -40,11 +39,7 @@ public class Outgoing extends Document {
     }
 
     public String toString() {
-        int month = getDate_reg().getMonth() + 1;
-        int year = getDate_reg().getYear() + 1900;
-        if (month >=10) {
-            return name_first + " " + "№" + " " + getReg_num() + " " + "от" + " " + getDate_reg().getDay() + "." + month + "." + year + " " + getName();
-        }
-        return name_first + " " + "№" + " " + getReg_num() + " " + "от" + " " + getDate_reg().getDay() + ".0" + month + "." + year + " " + getName();
+        String text = MessageFormat.format("Исходящий № {0,number,integer} от {1,date} {2}", getReg_num(), getDateReg(), getName());
+        return text;
     }
 }

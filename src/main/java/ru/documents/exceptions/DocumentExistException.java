@@ -1,4 +1,4 @@
-package ru.documents;
+package ru.documents.exceptions;
 
 /**
  * Выбрасывает исключение , если документ с генерируемым номером уже существует

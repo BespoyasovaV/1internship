@@ -1,6 +1,6 @@
 package ru.generate;
 
-import ru.documents.DocumentExistException;
+import ru.documents.exceptions.DocumentExistException;
 
 import java.util.Calendar;
 import java.util.Date;
@@ -14,18 +14,18 @@ import java.util.Random;
  */
 public class RandomValue {
     public static int generateRandomNumber(int beforeNumber) throws DocumentExistException {
-        int rand_number = (((int) (Math.random() * beforeNumber)) + 1);
-        if (CollectionsForAllYourNeeds.arrException.contains(rand_number)) {
+        int randNumber = (((int) (Math.random() * beforeNumber)) + 1);
+        if (ProgramCollections.arrException.contains(randNumber)) {
             throw new DocumentExistException("Документ с генерируемым номером уже существует");
         } else {
-            CollectionsForAllYourNeeds.arrException.add(rand_number);
+            ProgramCollections.arrException.add(randNumber);
         }
-        return rand_number;
+        return randNumber;
     }
 
     public String generateNameText() {
         int genText = (int) (Math.random() * 4);
-        String newText = CollectionsForAllYourNeeds.textList.get(genText);
+        String newText = ProgramCollections.textList.get(genText);
         return newText;
     }
 
@@ -35,16 +35,16 @@ public class RandomValue {
     }
 
     public String generateNameDoc() {
-        int rand1 = (int) (Math.random() * CollectionsForAllYourNeeds.wordListOne.size());
-        int rand2 = (int) (Math.random() * CollectionsForAllYourNeeds.wordListTwo.size());
-        String name = CollectionsForAllYourNeeds.wordListOne.get(rand1) + " " +
-                CollectionsForAllYourNeeds.wordListTwo.get(rand2);
+        int rand1 = (int) (Math.random() * ProgramCollections.wordListOne.size());
+        int rand2 = (int) (Math.random() * ProgramCollections.wordListTwo.size());
+        String name = ProgramCollections.wordListOne.get(rand1) + " " +
+                ProgramCollections.wordListTwo.get(rand2);
         return name;
     }
 
     public String generateFio() {
         int fio_rand = (int) (Math.random() * 5);
-        String fio = CollectionsForAllYourNeeds.listFio.get(fio_rand);
+        String fio = ProgramCollections.listFio.get(fio_rand);
         return fio;
     }
 

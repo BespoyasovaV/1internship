@@ -1,7 +1,9 @@
 package ru.documents.factory;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import ru.documents.entity.Document;
-import ru.documents.DocumentExistException;
+import ru.documents.exceptions.DocumentExistException;
 import ru.generate.RandomValue;
 
 import java.util.UUID;
@@ -15,18 +17,20 @@ public abstract class AbstractFactory<T extends Document> extends RandomValue {
     /**
      * С помощью рандома заполняет поля докуметна
      */
+    private static final Logger logger = LoggerFactory.getLogger(AbstractFactory.class);
+
     void getDocument(Document document) {
         try {
             document.setId(UUID.randomUUID());
             document.setName(generateNameDoc());
             document.setText(generateNameText());
             document.setReg_num(generateRandomNumber(100));
+
         } catch (DocumentExistException e) {
-            System.out.println(e.getMessage());
+            logger.error("Сгенерированы одинаковые регистрационные номера");
         }
         document.setDate_reg(generateDate());
         document.setAuthor(generateFio());
-
     }
 }
 

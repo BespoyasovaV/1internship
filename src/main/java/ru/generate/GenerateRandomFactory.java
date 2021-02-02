@@ -5,20 +5,32 @@ import ru.documents.factory.IncomingFactory;
 import ru.documents.factory.OutgoingFactory;
 import ru.documents.factory.TaskFactory;
 
+import java.util.Random;
+
+/**
+ * Клас сдля создания рандомной фабрики
+ *
+ * @author BespoyasovaV
+ */
 public class GenerateRandomFactory {
+    /**
+     * Метод создает рандомную фабрику
+     */
     public static DocumentCreate generateRandomFactory() {
-        int generateRandomNum = (int) (Math.random() * 3);
+        int generateRandomNum = new Random().nextInt(Delivery.values().length);
         DocumentCreate documentCreate = null;
-        if (CollectionsForAllYourNeeds.arr.get(generateRandomNum).equals("Task")) {
-            documentCreate = new TaskFactory();
-            return documentCreate;
-        }
-        if (CollectionsForAllYourNeeds.arr.get(generateRandomNum).equals("Incoming")) {
-            documentCreate = new IncomingFactory();
-            return documentCreate;
-        }
-        if (CollectionsForAllYourNeeds.arr.get(generateRandomNum).equals("Outgoing")) {
-            documentCreate = new OutgoingFactory();
+        switch (TypeOfDocument.values()[generateRandomNum]) {
+            case TASK:
+                documentCreate = new TaskFactory();
+                break;
+
+            case INCOMING:
+                documentCreate = new IncomingFactory();
+                break;
+
+            case OUTGOING:
+                documentCreate = new OutgoingFactory();
+                break;
         }
         return documentCreate;
     }

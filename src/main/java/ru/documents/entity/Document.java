@@ -1,46 +1,46 @@
 package ru.documents.entity;
 
 import java.util.Date;
+import java.util.Objects;
 import java.util.UUID;
 
 /**
- * Класс родитель  для видов документов
+ * Класс родитель для видов документов
  *
  * @author BespoyasovaV
  */
-public class Document<T> implements Comparable<Document> {
+public abstract class Document implements Comparable<Document> {
     /**
      * Идентификатор документа
      */
-    UUID id;
+    private UUID id;
     /**
      * Название документа
      */
     String name;
     /**
-     * Текст  документа
+     * Текст документа
      */
     String text;
     /**
      * Регистрационный номер документа
      */
-    int reg_num;
+    int regNum;
     /**
      * Дата регистрации документа
      */
-    Date date_reg;
+    Date dateReg;
     /**
      * Автор документа
      */
     String author;
 
-    //getters
     public UUID getId() {
         return id;
     }
 
     public int getReg_num() {
-        return reg_num;
+        return regNum;
     }
 
     public String getName() {
@@ -55,21 +55,20 @@ public class Document<T> implements Comparable<Document> {
         return author;
     }
 
-    public Date getDate_reg() {
-        return date_reg;
+    public Date getDateReg() {
+        return dateReg;
     }
 
-    //setters
     public void setAuthor(String author) {
         this.author = author;
     }
 
-    public void setDate_reg(Date date_reg) {
-        this.date_reg = date_reg;
+    public void setDate_reg(Date dateReg) {
+        this.dateReg = dateReg;
     }
 
-    public void setReg_num(int reg_num) {
-        this.reg_num = reg_num;
+    public void setReg_num(int regNum) {
+        this.regNum = regNum;
     }
 
     public void setText(String text) {
@@ -81,20 +80,28 @@ public class Document<T> implements Comparable<Document> {
     }
 
     public void setId(UUID id) {
-        this.id = id;
+       this.id=id;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Document document = (Document) o;
+        return regNum == document.regNum && Objects.equals(id, document.id) && Objects.equals(name, document.name) && Objects.equals(text, document.text) && Objects.equals(dateReg, document.dateReg) && Objects.equals(author, document.author);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, name, text, regNum, dateReg, author);
     }
 
     @Override
     public int compareTo(Document o) {
-        if (this.reg_num - o.reg_num < 0) {
-            return -1;
+        if (this.dateReg==o.getDateReg()) {
+           Integer.compare(this.regNum,o.regNum);
         }
-        if (this.reg_num - o.reg_num > 0) {
-            return 1;
-        } else {
-            return this.date_reg.compareTo(o.getDate_reg());
-        }
+            return this.dateReg.compareTo(o.getDateReg());
     }
 }
-
 

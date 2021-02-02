@@ -23,9 +23,9 @@ public class TaskFactory extends AbstractFactory<Task> implements DocumentCreate
     @Override
     public Task generateRandomPropertiesForDocument(Task document) {
         getDocument(document);
-        document.setDate_issue(generateDate());
+        document.setDateIssue(generateDate());
         document.setTerm(RandomUtils.nextInt(0, 56));
-        document.setExecutor_name(generateFio());
+        document.setExecutorName(generateFio());
         document.setSign(RandomUtils.nextBoolean());
         document.setController(RandomUtils.nextBoolean());
         return document;
