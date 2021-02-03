@@ -23,18 +23,18 @@ public class RandomValue {
         return randNumber;
     }
 
-    public String generateNameText() {
+    public static String generateNameText() {
         int genText = (int) (Math.random() * 4);
         String newText = ProgramCollections.textList.get(genText);
         return newText;
     }
 
-    public Delivery generateDelivery() {
+    public static Delivery generateDelivery() {
         int gen_del = new Random().nextInt(Delivery.values().length);
         return Delivery.values()[gen_del];
     }
 
-    public String generateNameDoc() {
+    public static String generateNameDoc() {
         int rand1 = (int) (Math.random() * ProgramCollections.wordListOne.size());
         int rand2 = (int) (Math.random() * ProgramCollections.wordListTwo.size());
         String name = ProgramCollections.wordListOne.get(rand1) + " " +
@@ -42,13 +42,13 @@ public class RandomValue {
         return name;
     }
 
-    public String generateFio() {
+    public static String generateFio() {
         int fio_rand = (int) (Math.random() * 5);
         String fio = ProgramCollections.listFio.get(fio_rand);
         return fio;
     }
 
-    public Date generateDate() {
+    public static Date generateDate() {
         int yearRand = (int) (2000 + Math.random() * 25);
         int monthRand = (int) (1 + Math.random() * 10);
         int dayRand = (int) (Math.random() * 29) + 1;

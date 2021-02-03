@@ -1,4 +1,4 @@
-package ru.generate;
+package ru.documents.process;
 
 import ru.documents.entity.Document;
 import ru.generate.ProgramCollections;

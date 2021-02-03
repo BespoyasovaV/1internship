@@ -39,7 +39,7 @@ public abstract class Document implements Comparable<Document> {
         return id;
     }
 
-    public int getReg_num() {
+    public int getRegNum() {
         return regNum;
     }
 

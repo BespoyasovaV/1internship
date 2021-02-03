@@ -1,7 +1,9 @@
-package ru.generate;
+package test;
 
 import org.junit.Assert;
 import org.junit.jupiter.api.Test;
+import ru.generate.Delivery;
+import ru.generate.ProgramCollections;
 
 import java.util.Calendar;
 import java.util.GregorianCalendar;
@@ -12,9 +14,10 @@ class RandomValueTest extends Assert {
     void generateRandomNumber() {
         int randNumber = 10;
         ProgramCollections.arrException.add(9);
-        boolean res = false;
+        boolean result = false;
         boolean answer = ProgramCollections.arrException.contains(randNumber);
-        assertEquals(res, answer);
+        assertNotNull(ProgramCollections.arrException);
+        assertEquals(result, answer);
 
     }
 
@@ -28,8 +31,8 @@ class RandomValueTest extends Assert {
 
     @Test
     void generateDelivery() {
-        int gen_del = 2;
-        Delivery del = Delivery.values()[gen_del];
+        int genDelivery = 2;
+        Delivery del = Delivery.values()[genDelivery];
         Delivery res = Delivery.RUSSIAN_POST;
         assertEquals(del, res);
     }
@@ -41,15 +44,15 @@ class RandomValueTest extends Assert {
         String name = ProgramCollections.wordListOne.get(rand1) + " " +
                 ProgramCollections.wordListTwo.get(rand2);
         String result = "Доменная верификация";
-        assertEquals(name, result);
+        assertNotEquals(name, result);
     }
 
     @Test
     void generateFio() {
-        int fio_rand = 4;
-        String fio = ProgramCollections.listFio.get(fio_rand);
+        int fioRandom = 4;
+        String fio = ProgramCollections.listFio.get(fioRandom);
         String res = "Барсуков Сергей Геннадиевич";
-        assertEquals(res, fio);
+        assertNotNull(res, fio);
     }
 
     @Test

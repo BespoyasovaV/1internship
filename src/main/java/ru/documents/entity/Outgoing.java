@@ -39,7 +39,7 @@ public class Outgoing extends Document {
     }
 
     public String toString() {
-        String text = MessageFormat.format("Исходящий № {0,number,integer} от {1,date} {2}", getReg_num(), getDateReg(), getName());
+        String text = MessageFormat.format("Исходящий № {0,number,integer} от {1,date} {2}", getRegNum(), getDateReg(), getName());
         return text;
     }
 }

@@ -1,4 +1,4 @@
-import ru.generate.ProcessingDocuments;
+import ru.documents.process.ProcessingDocuments;
 import ru.generate.ProgramCollections;
 import ru.generate.GenerateRandomFactory;
 import ru.documents.entity.Document;
@@ -13,7 +13,7 @@ import ru.generate.RandomValue;
  */
 public class MainClass {
     public static void main(String[] args) throws DocumentExistException {
-        int randomValueForDocList = RandomValue.generateRandomNumber(100);
+        int randomValueForDocList = RandomValue.generateRandomNumber(14);
         for (int i = 0; i < randomValueForDocList; i++) {
             DocumentCreate documentCreate = GenerateRandomFactory.generateRandomFactory();
             Document doc = documentCreate.generateRandomPropertiesForDocument(documentCreate.create());

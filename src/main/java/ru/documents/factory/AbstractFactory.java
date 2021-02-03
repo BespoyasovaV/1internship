@@ -15,7 +15,7 @@ import java.util.UUID;
  */
 public abstract class AbstractFactory<T extends Document> extends RandomValue {
     /**
-     * С помощью рандома заполняет поля докуметна
+     * С помощью рандома заполняет поля докумета
      */
     private static final Logger logger = LoggerFactory.getLogger(AbstractFactory.class);
 
@@ -27,7 +27,7 @@ public abstract class AbstractFactory<T extends Document> extends RandomValue {
             document.setReg_num(generateRandomNumber(100));
 
         } catch (DocumentExistException e) {
-            logger.error("Сгенерированы одинаковые регистрационные номера");
+            logger.error("Документ с генерируемым номером уже есть");
         }
         document.setDate_reg(generateDate());
         document.setAuthor(generateFio());
