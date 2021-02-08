@@ -11,9 +11,8 @@ ru\persons\Staff.class
 ru\documents\entity\Task.class
 ru\documents\factory\TaskFactory.class
 MainClass.class
-ru\generate\RandomValueTest.class
+ru\documents\process\ProcessingDocuments.class
 ru\persons\Organization.class
-ru\generate\ProcessingDocuments.class
 ru\documents\factory\DocumentCreate.class
 ru\documents\entity\Incoming.class
 ru\documents\exceptions\DocumentExistException.class

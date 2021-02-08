@@ -1,6 +1,5 @@
 package ru.documents.entity;
 
-import java.text.MessageFormat;
 import java.util.Date;
 
 /**
@@ -12,58 +11,60 @@ public class Incoming extends Document {
     /**
      * Отправитель
      */
-    String sender;
+    private String sender;
     /**
      * Адресат
      */
-    String destination;
+    private String destination;
     /**
      * Исходящий номер
      */
-    int outgoingNum;
+    private int outgoingNumber;
     /**
      * Исходящая дата регистрации
      */
-    Date outgoingDate;
+    private Date outgoingDate;
 
-    /**
-     * Название вида  документа
-     */
     public String getSender() {
         return sender;
-    }
-
-    public String getDestination() {
-        return destination;
-    }
-
-    public int getOutgoingNum() {
-        return outgoingNum;
-    }
-
-    public Date getOutgoingDate() {
-        return outgoingDate;
     }
 
     public void setSender(String sender) {
         this.sender = sender;
     }
 
+    public String getDestination() {
+        return destination;
+    }
+
     public void setDestination(String destination) {
         this.destination = destination;
     }
 
-    public void setOutgoingNum(int outgoingNum) {
-        this.outgoingNum = outgoingNum;
+    public int getOutgoingNumber() {
+        return outgoingNumber;
+    }
+
+    public void setOutgoingNumber(int outgoingNumber) {
+        this.outgoingNumber = outgoingNumber;
+    }
+
+    public Date getOutgoingDate() {
+        return outgoingDate;
     }
 
     public void setOutgoingDate(Date outgoingDate) {
         this.outgoingDate = outgoingDate;
     }
 
+    @Override
     public String toString() {
-        String text = MessageFormat.format("Входящий № {0,number,integer} от {1,date} {2}", getRegNum(), getDateReg(), getName());
-        return text;
+        return "Incoming{" +
+                "sender='" + sender + '\'' +
+                ", destination='" + destination + '\'' +
+                ", outgoingNum=" + outgoingNumber +
+                ", outgoingDate=" + outgoingDate +
+                '}';
     }
 }
 

@@ -1,21 +1,17 @@
 package ru.documents.factory;
 
 import ru.documents.entity.Document;
+import ru.documents.exceptions.DocumentExistException;
 
 /**
- * От этого класса  наследуются фабрики, которые оздают документы разных видов
+ * Этот интерфейс реализуют фабрики, которые создают документы разных видов
  *
  * @author BespoyasovaV
  */
 public interface DocumentCreate<T extends Document> {
     /**
-     * Создает пустой документ
-     */
-    T create();
-
-    /**
      * Заполняет поля пустого докуметна, но не все, а те, которые относятся к его классу
      */
-    T generateRandomPropertiesForDocument(T document);
+    T generateRandomPropertiesForDocument() throws DocumentExistException;
 }
 

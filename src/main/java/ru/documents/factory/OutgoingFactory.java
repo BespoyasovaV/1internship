@@ -1,6 +1,9 @@
 package ru.documents.factory;
 
 import ru.documents.entity.Outgoing;
+import ru.documents.exceptions.DocumentExistException;
+import ru.generate.Delivery;
+import ru.generate.ProgramCollections;
 
 /**
  * Класс создает  документ Outgoing, но без полей родителя
@@ -12,18 +15,12 @@ public class OutgoingFactory extends AbstractFactory<Outgoing> implements Docume
      * {@inheritDoc}
      */
     @Override
-    public Outgoing create() {
-        return new Outgoing();
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    public Outgoing generateRandomPropertiesForDocument(Outgoing document) {
-        getDocument(document);
-        document.setDestination(generateFio());
-        document.setDelivery(generateDelivery());
+    public Outgoing generateRandomPropertiesForDocument() throws DocumentExistException {
+        Outgoing document = new Outgoing();
+        generateRandomProperties(document);
+        document.setDestination(generateListMeaning(ProgramCollections.listFio));
+        document.setDelivery((Delivery) generateEnum(Delivery.values()));
         return document;
     }
 }
+

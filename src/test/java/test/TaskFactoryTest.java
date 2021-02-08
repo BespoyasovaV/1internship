@@ -1,33 +1,23 @@
 package test;
 
-import org.apache.commons.lang3.RandomUtils;
 import org.junit.jupiter.api.Test;
-import ru.documents.entity.Incoming;
 import ru.documents.entity.Task;
-import ru.generate.RandomValue;
+import ru.documents.exceptions.DocumentExistException;
+import ru.documents.factory.TaskFactory;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 class TaskFactoryTest {
-
+    TaskFactory taskFactory=new TaskFactory();
+    Task document = new Task();
     @Test
-    void create() {
-        Incoming incoming = new Incoming();
-        assertNotNull(incoming);
-    }
-
-    @Test
-    void generateRandomPropertiesForDocument() {
-        Task document = new Task();
-        document.setDateIssue(RandomValue.generateDate());
-        document.setTerm(RandomUtils.nextInt(0, 56));
-        document.setExecutorName(RandomValue.generateFio());
-        document.setSign(RandomUtils.nextBoolean());
-        document.setController(RandomUtils.nextBoolean());
-        assertNotNull(document.getDateIssue());
-        assertNotNull(document.getTerm());
-        assertNotNull(document.getController());
-        assertNotNull(document.getSign());
-        assertNotNull(document);
+    void generateRandomPropertiesForDocument() throws DocumentExistException {
+        taskFactory.generateRandomPropertiesForDocument();
+        assertNotNull( document.getController());
+        assertNotNull( document.getDateIssue());
+        assertNotNull( document.getExecutorName());
+        assertNotNull( document.getSign());
+        assertNotNull( document.getTerm());
+        assertNotNull( taskFactory.generateRandomPropertiesForDocument());
     }
 }

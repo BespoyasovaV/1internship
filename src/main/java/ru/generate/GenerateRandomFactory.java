@@ -8,7 +8,7 @@ import ru.documents.factory.TaskFactory;
 import java.util.Random;
 
 /**
- * Клас сдля создания рандомной фабрики
+ * Класс для создания рандомной фабрики
  *
  * @author BespoyasovaV
  */
@@ -19,7 +19,7 @@ public class GenerateRandomFactory {
     public static DocumentCreate generateRandomFactory() {
         int generateRandomNum = new Random().nextInt(Delivery.values().length);
         DocumentCreate documentCreate = null;
-        switch (TypeOfDocument.values()[generateRandomNum]) {
+        switch (DocumentType.values()[generateRandomNum]) {
             case TASK:
                 documentCreate = new TaskFactory();
                 break;

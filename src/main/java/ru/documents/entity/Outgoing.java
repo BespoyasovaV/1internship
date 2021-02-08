@@ -2,8 +2,6 @@ package ru.documents.entity;
 
 import ru.generate.Delivery;
 
-import java.text.MessageFormat;
-
 /**
  * Наследник класса Document, нужен для создания исходящих документов
  *
@@ -13,15 +11,12 @@ public class Outgoing extends Document {
     /**
      * Адресат
      */
-    String destination;
+    private String destination;
     /**
      * Способ  доставки
      */
-    Delivery delivery;
+    private Delivery delivery;
 
-    /**
-     * Название вида документа
-     */
     public String getDestination() {
         return destination;
     }
@@ -38,8 +33,12 @@ public class Outgoing extends Document {
         this.destination = destination;
     }
 
+    @Override
     public String toString() {
-        String text = MessageFormat.format("Исходящий № {0,number,integer} от {1,date} {2}", getRegNum(), getDateReg(), getName());
-        return text;
+        return "Outgoing{" +
+                "destination='" + destination + '\'' +
+                ", delivery=" + delivery +
+                '}';
     }
+
 }

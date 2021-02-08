@@ -1,6 +1,5 @@
 package ru.documents.entity;
 
-import java.text.MessageFormat;
 import java.util.Date;
 
 /**
@@ -12,27 +11,24 @@ public class Task extends Document {
     /**
      * Дата выдачи поручения
      */
-    Date dateIssue;
+    private Date dateIssue;
     /**
      * Срок исполнения пручения
      */
-    int term;
+    private int term;
     /**
      * Ответственный исполнитель
      */
-    String executorName;
+    private String executorName;
     /**
      * Признак контрольности
      */
-    Boolean sign;
+    private boolean sign;
     /**
      * Контролер поручения
      */
-    Boolean controller;
+    private Boolean controller;
 
-    /**
-     * Название вида  документа
-     */
     public int getTerm() {
         return term;
     }
@@ -45,11 +41,11 @@ public class Task extends Document {
         return executorName;
     }
 
-    public Boolean getSign() {
+    public boolean getSign() {
         return sign;
     }
 
-    public Boolean getController() {
+    public boolean getController() {
         return controller;
     }
 
@@ -61,7 +57,7 @@ public class Task extends Document {
         this.sign = sign;
     }
 
-    public void setExecutorName(String executor_name) {
+    public void setExecutorName(String executorName) {
         this.executorName = executorName;
     }
 
@@ -73,9 +69,15 @@ public class Task extends Document {
         this.dateIssue = dateIssue;
     }
 
+    @Override
     public String toString() {
-        String text = MessageFormat.format("Поручение № {0,number,integer} от {1,date} {2}", getRegNum(), getDateReg(), getName());
-        return text;
+        return "Task{" +
+                "dateIssue=" + dateIssue +
+                ", term=" + term +
+                ", executorName='" + executorName + '\'' +
+                ", sign=" + sign +
+                ", controller=" + controller +
+                '}';
     }
 }
 

@@ -1,67 +1,32 @@
 package test;
 
-import org.junit.Assert;
 import org.junit.jupiter.api.Test;
+import ru.documents.exceptions.DocumentExistException;
 import ru.generate.Delivery;
 import ru.generate.ProgramCollections;
+import ru.generate.RandomValue;
 
-import java.util.Calendar;
-import java.util.GregorianCalendar;
+import static org.junit.jupiter.api.Assertions.*;
 
-class RandomValueTest extends Assert {
+class RandomValueTest {
 
     @Test
-    void generateRandomNumber() {
-        int randNumber = 10;
-        ProgramCollections.arrException.add(9);
-        boolean result = false;
-        boolean answer = ProgramCollections.arrException.contains(randNumber);
-        assertNotNull(ProgramCollections.arrException);
-        assertEquals(result, answer);
-
+    void generateRandomNumber() throws DocumentExistException {
+        assertNotNull( RandomValue.generateRandomNumber(8));
     }
 
     @Test
-    void generateNameText() {
-        int genText = 3;
-        String newText = ProgramCollections.textList.get(genText);
-        String result = "Чек-лист по заработку";
-        assertEquals(newText, result);
+    void generateListMeaning() {
+        assertNotNull(RandomValue.generateListMeaning(ProgramCollections.wordListOne));
     }
 
     @Test
     void generateDelivery() {
-        int genDelivery = 2;
-        Delivery del = Delivery.values()[genDelivery];
-        Delivery res = Delivery.RUSSIAN_POST;
-        assertEquals(del, res);
-    }
-
-    @Test
-    void generateNameDoc() {
-        int rand1 = 2;
-        int rand2 = 1;
-        String name = ProgramCollections.wordListOne.get(rand1) + " " +
-                ProgramCollections.wordListTwo.get(rand2);
-        String result = "Доменная верификация";
-        assertNotEquals(name, result);
-    }
-
-    @Test
-    void generateFio() {
-        int fioRandom = 4;
-        String fio = ProgramCollections.listFio.get(fioRandom);
-        String res = "Барсуков Сергей Геннадиевич";
-        assertNotNull(res, fio);
+        assertNotNull(RandomValue.generateEnum(Delivery.values()));
     }
 
     @Test
     void generateDate() {
-        int yearRand = 2025;
-        int monthRand = 10;
-        int dayRand = 1;
-        Calendar calendar = new GregorianCalendar(yearRand, monthRand, dayRand);
-        Calendar calendar1 = new GregorianCalendar(2025, 10, 1);
-        assertEquals(calendar1, calendar);
+        assertNotNull(RandomValue.generateDate());
     }
 }

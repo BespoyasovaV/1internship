@@ -17,91 +17,99 @@ public abstract class Document implements Comparable<Document> {
     /**
      * Название документа
      */
-    String name;
+    private String name;
     /**
      * Текст документа
      */
-    String text;
+    private String text;
     /**
      * Регистрационный номер документа
      */
-    int regNum;
+    private int regNumber;
     /**
      * Дата регистрации документа
      */
-    Date dateReg;
+    private Date registrationDate;
     /**
      * Автор документа
      */
-    String author;
+    private String author;
 
     public UUID getId() {
         return id;
     }
 
-    public int getRegNum() {
-        return regNum;
+    public void setId(UUID id) {
+        this.id = id;
     }
 
     public String getName() {
         return name;
     }
 
+    public void setName(String name) {
+        this.name = name;
+    }
+
     public String getText() {
         return text;
-    }
-
-    public String getAuthor() {
-        return author;
-    }
-
-    public Date getDateReg() {
-        return dateReg;
-    }
-
-    public void setAuthor(String author) {
-        this.author = author;
-    }
-
-    public void setDate_reg(Date dateReg) {
-        this.dateReg = dateReg;
-    }
-
-    public void setReg_num(int regNum) {
-        this.regNum = regNum;
     }
 
     public void setText(String text) {
         this.text = text;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public int getRegNumber() {
+        return regNumber;
     }
 
-    public void setId(UUID id) {
-       this.id=id;
+    public void setRegNumber(int regNumber) {
+        this.regNumber = regNumber;
+    }
+
+    public Date getRegistrationDate() {
+        return registrationDate;
+    }
+
+    public void setRegistrationDate(Date registrationDate) {
+        this.registrationDate = registrationDate;
+    }
+
+    public String getAuthor() {
+        return author;
+    }
+
+    public void setAuthor(String author) {
+        this.author = author;
     }
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
         Document document = (Document) o;
-        return regNum == document.regNum && Objects.equals(id, document.id) && Objects.equals(name, document.name) && Objects.equals(text, document.text) && Objects.equals(dateReg, document.dateReg) && Objects.equals(author, document.author);
+        return regNumber == document.regNumber && Objects.equals(id, document.id) && Objects.equals(name, document.name)
+                && Objects.equals(text, document.text) && Objects.equals(registrationDate, document.registrationDate)
+                && Objects.equals(author, document.author);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name, text, regNum, dateReg, author);
+        return Objects.hash(id, name, text, regNumber, registrationDate, author);
     }
 
     @Override
     public int compareTo(Document o) {
-        if (this.dateReg==o.getDateReg()) {
-           Integer.compare(this.regNum,o.regNum);
+        if (this.registrationDate == o.getRegistrationDate()) {
+            return Integer.compare(this.regNumber, o.regNumber);
         }
-            return this.dateReg.compareTo(o.getDateReg());
+        return this.registrationDate.compareTo(o.getRegistrationDate());
     }
 }
+
+
 

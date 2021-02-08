@@ -1,25 +1,18 @@
 package test;
 
 import org.junit.jupiter.api.Test;
-import ru.documents.entity.Incoming;
 import ru.documents.entity.Outgoing;
-import ru.generate.RandomValue;
+import ru.documents.exceptions.DocumentExistException;
+import ru.documents.factory.OutgoingFactory;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 class OutgoingFactoryTest {
-
+    OutgoingFactory outgoingFactory=new OutgoingFactory();
+    Outgoing document = new Outgoing();
     @Test
-    void create() {
-        Incoming incoming = new Incoming();
-        assertNotNull(incoming);
-    }
-
-    @Test
-    void generateRandomPropertiesForDocument() {
-        Outgoing document = new Outgoing();
-        document.setDestination(RandomValue.generateFio());
-        document.setDelivery(RandomValue.generateDelivery());
+    void generateRandomPropertiesForDocument() throws DocumentExistException {
+        outgoingFactory.generateRandomPropertiesForDocument();
         assertNotNull(document.getDelivery());
         assertNotNull(document.getDestination());
         assertNotNull(document);
