@@ -1,0 +1,5 @@
+test\TaskFactoryTest.class
+test\RandomValueTest.class
+test\OutgoingFactoryTest.class
+test\IncomingFactoryTest.class
+test\AbstractFactoryTest.class
